@@ -5,7 +5,7 @@
   "main": "js/index.js",
   "scripts": {
     "test": "jest",
-    "ex-input": "beefy examples/input/main.js:bundle.js --cwd examples/input --open -- -d -t reactify"
+    "input": "beefy examples/input/main.js:bundle.js --cwd examples/input --open -- -d -t reactify"
   },
   "repository": {
     "type": "git",
