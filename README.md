@@ -15,10 +15,14 @@ componentDidMount: function() {
   });
 
   this.refs.cmd.registerPrefixTrigger('@', {
+    // text is what is rendered in the input
+    // when you select it (enter)
     text: function(user) {
       return ['@',user.displayName].join('');
     },
 
+    // label is what is rendered in the
+    // selection menu
     label: function(user) {
       return [
         '@'+user.displayName, user.fullname
