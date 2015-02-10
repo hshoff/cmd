@@ -2,9 +2,10 @@
   "name": "slash-cmd",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "js/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "ex-input": "beefy examples/input/main.js:bundle.js --cwd examples/input --open -- -d -t reactify"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,19 @@
   "bugs": {
     "url": "https://github.com/hshoff/cmd/issues"
   },
-  "homepage": "https://github.com/hshoff/cmd"
+  "homepage": "https://github.com/hshoff/cmd",
+  "dependencies": {
+    "react": "^0.12.2",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "beefy": "^2.1.3",
+    "browserify": "^8.1.3",
+    "jest-cli": "^0.2.2",
+    "reactify": "^1.0.0",
+    "watchify": "^2.3.0"
+  },
+  "jest": {
+    "rootDir": "./js"
+  }
 }
