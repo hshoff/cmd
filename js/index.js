@@ -53,6 +53,16 @@ var CMDSelectionMenu = React.createClass({
 var CMDTextInput = React.createClass({
   displayName: 'CMDTextInput',
 
+  propTypes: {
+    prefixTriggers: React.PropTypes.array
+  },
+
+  getDefaultProps: function() {
+    return {
+      prefixTriggers: []
+    }
+  },
+
   getInitialState: function() {
     return {
       options: {},
@@ -68,6 +78,12 @@ var CMDTextInput = React.createClass({
     // don't clobber existing events
     this.addBeforeFn('onKeyPress', composer.props);
     this.addBeforeFn('onKeyUp', composer.props);
+  },
+
+  componentDidMount: function() {
+    this.props.prefixTriggers.forEach(function(trigger){
+      this.registerPrefixTrigger(trigger.key, trigger)
+    }, this);
   },
 
   registerPrefixTrigger: function(prefix, data) {
@@ -190,7 +206,7 @@ var CMDTextInput = React.createClass({
         });
         break;
 
-      // at symbol
+      // @
       case 64:
         this.setState({
           foundPrefix: '@',
